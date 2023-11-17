@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:jsx-a11y/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "jsx-a11y/rule-name": 2,
+    "semi": ["error", "always"],
+    "no-console": "warn",
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1, "maxBOF": 1 }],
+    "no-unused-vars": "warn"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "projects": "./tsconfig.json"
+    },
+    "extends": ["./node_modules/airbnb/eslintrc.json"],
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnviroment": "node",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": ["/node_modules/", "/test/", "/dist/"]
+  }
+}
