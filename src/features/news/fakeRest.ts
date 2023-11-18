@@ -1,15 +1,22 @@
-export interface INoticias {
-  id: number;
-  titulo: string;
-  descripcion: string;
-  fecha: Date;
-  esPremium: boolean;
-  imagen: string;
-}
+import { INoticias } from "./types";
+// export interface INoticias {
+//   id: number;
+//   titulo: string;
+//   descripcion: string;
+//   fecha: Date;
+//   esPremium: boolean;
+//   imagen: string;
+// }
 
-const simularTiempoTranscurrido: (decrementMiliseconds: number) => Date = (
-  decrementMiliseconds
-) => {
+// const simularTiempoTranscurrido: (decrementMiliseconds: number) => Date = (
+//   decrementMiliseconds
+// ) => {
+//   let time = new Date();
+//   time.setMilliseconds(time.getMilliseconds() - decrementMiliseconds);
+//   return time;
+// };
+
+const simularTiempoTranscurrido: (decrementMiliseconds: number) => Date = (decrementMiliseconds) => {
   let time = new Date();
   time.setMilliseconds(time.getMilliseconds() - decrementMiliseconds);
   return time;
