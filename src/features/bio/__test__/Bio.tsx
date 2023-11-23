@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NombresSimpsons, INFO_SIMPSONS } from './constants';
+import { NombresSimpsons, INFO_SIMPSONS } from '../constants';
 import styles from '../styles.module.css';
 
 const Bio = () => {
