@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SuscribeImage, CloseButton as Close } from "../../assets";
+import  { INoticiasNormalizadas } from "../news/types/index"
 import { obtenerNoticias } from "./fakeRest";
 import {
   CloseButton,
@@ -18,18 +19,18 @@ import {
   TituloNoticias,
   BotonLectura,
   BotonSuscribir,
-  CotenedorTexto,
+  ContenedorTexto,
 } from "./styled";
 
-export interface INoticiasNormalizadas {
-  id: number;
-  titulo: string;
-  descripcion: string;
-  fecha: number | string;
-  esPremium: boolean;
-  imagen: string;
-  descripcionCorta?: string;
-}
+// export interface INoticiasNormalizadas {
+//   id: number;
+//   titulo: string;
+//   descripcion: string;
+//   fecha: number | string;
+//   esPremium: boolean;
+//   imagen: string;
+//   descripcionCorta?: string;
+// }
 
 const Noticias = () => {
   const [noticias, setNoticias] = useState<INoticiasNormalizadas[]>([]);
@@ -92,7 +93,7 @@ const Noticias = () => {
                   <img src={Close} alt="close-button" />
                 </CloseButton>
                 <ImagenModal src={SuscribeImage} alt="mr-burns-excelent" />
-                <CotenedorTexto>
+                <ContenedorTexto>
                   <TituloModal>Suscríbete a nuestro Newsletter</TituloModal>
                   <DescripcionModal>
                     Suscríbete a nuestro newsletter y recibe noticias de
@@ -108,7 +109,7 @@ const Noticias = () => {
                   >
                     Suscríbete
                   </BotonSuscribir>
-                </CotenedorTexto>
+                </ContenedorTexto>
               </TarjetaModal>
             </ContenedorModal>
           ) : (
@@ -118,10 +119,10 @@ const Noticias = () => {
                   <img src={Close} alt="close-button" />
                 </CloseButton>
                 <ImagenModal src={modal.imagen} alt="news-image" />
-                <CotenedorTexto>
+                <ContenedorTexto>
                   <TituloModal>{modal.titulo}</TituloModal>
                   <DescripcionModal>{modal.descripcion}</DescripcionModal>
-                </CotenedorTexto>
+                </ContenedorTexto>
               </TarjetaModal>
             </ContenedorModal>
           )

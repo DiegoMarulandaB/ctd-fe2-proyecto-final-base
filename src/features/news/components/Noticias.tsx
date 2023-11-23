@@ -1,53 +1,126 @@
 import { useEffect, useState } from 'react';
-import { ContenedorNoticias, ListaNoticias, TituloNoticias } from '../styled';
-import Noticia from './Noticia';
-import useGetNoticias from '../hooks/useGetNoticias';
-import ModalSubscribe from './modal/ModalSubscribe';
-import ModalNoticia from './modal/ModalNoticia';
-import { INoticiasNormalizadas } from '../types';
-import Loading from './Loading';
-import ErrorFallback from '../../ErrorBoundary/ErrorFallback';
+import { SuscribeImage, CloseButton as Close } from '.././../../assets';
+import { obtenerNoticias } from '../fakeRest';
+import {
+  CloseButton,
+  TarjetaModal,
+  ContenedorModal,
+  DescripcionModal,
+  ImagenModal,
+  TituloModal,
+  TarjetaNoticia,
+  FechaTarjetaNoticia,
+  DescripcionTarjetaNoticia,
+  ImagenTarjetaNoticia,
+  TituloTarjetaNoticia,
+  ContenedorNoticias,
+  ListaNoticias,
+  TituloNoticias,
+  BotonLectura,
+  BotonSuscribir,
+  ContenedorTexto,
+} from '../styled';
 
-/* applied Single Responsibility Principle, Interface Segregation Principle, Dependency Inversion Principle, Open/Closed Principle in news folder */
+export interface INoticiasNormalizadas {
+  id: number;
+  titulo: string;
+  descripcion: string;
+  fecha: number | string;
+  esPremium: boolean;
+  imagen: string;
+  descripcionCorta?: string;
+}
+
 const Noticias = () => {
-  const { noticias, error, isLoading } = useGetNoticias();
-  const [modalVisible, setModalVisible] = useState(false);
-  const [noticiaSeleccionada, setNoticiaSeleccionada] = useState<INoticiasNormalizadas | null>(null);
-  const [, setModal] = useState<INoticiasNormalizadas | null>(null);
+  const [noticias, setNoticias] = useState<INoticiasNormalizadas[]>([]);
+  const [modal, setModal] = useState<INoticiasNormalizadas | null>(null);
 
-  const showModal = (noticia: INoticiasNormalizadas) => {
-    setNoticiaSeleccionada(noticia);
-    setModalVisible(true);
-  };
+  useEffect(() => {
+    const obtenerInformacion = async () => {
+      const respuesta = await obtenerNoticias();
 
-  const closeModal = () => {
-    setModalVisible(false);
-    setNoticiaSeleccionada(null);
-  };
+      const data = respuesta.map((n) => {
+        const titulo = n.titulo
+          .split(' ')
+          .map((str) => {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+          })
+          .join(' ');
 
-  const subscribe = () => {
-    setTimeout(() => {
-      alert('Suscripto!');
-      setModal(null);
-    }, 1000);
-  };
+        const ahora = new Date();
+        const minutosTranscurridos = Math.floor((ahora.getTime() - n.fecha.getTime()) / 60000);
 
-  useEffect(() => {}, [noticias]);
+        return {
+          id: n.id,
+          titulo,
+          descripcion: n.descripcion,
+          fecha: `Hace ${minutosTranscurridos} minutos`,
+          esPremium: n.esPremium,
+          imagen: n.imagen,
+          descripcionCorta: n.descripcion.substring(0, 100),
+        };
+      });
 
-  if (isLoading) return <Loading />;
-  if (error) return <ErrorFallback />;
+      setNoticias(data);
+    };
+
+    obtenerInformacion();
+  }, []);
 
   return (
     <ContenedorNoticias>
       <TituloNoticias>Noticias de los Simpsons</TituloNoticias>
       <ListaNoticias>
-        {noticias.map((noticia) => (
-          <Noticia key={noticia.id} data={noticia} onClick={() => showModal(noticia)} />
+        {noticias.map((n) => (
+          <TarjetaNoticia>
+            <ImagenTarjetaNoticia src={n.imagen} />
+            <TituloTarjetaNoticia>{n.titulo}</TituloTarjetaNoticia>
+            <FechaTarjetaNoticia>{n.fecha}</FechaTarjetaNoticia>
+            <DescripcionTarjetaNoticia>{n.descripcionCorta}</DescripcionTarjetaNoticia>
+            <BotonLectura onClick={() => setModal(n)}>Ver más</BotonLectura>
+          </TarjetaNoticia>
         ))}
-        {modalVisible &&
-          ((noticiaSeleccionada?.esPremium && <ModalSubscribe onSubscribe={subscribe} onClose={closeModal} />) || (
-            <ModalNoticia noticia={noticiaSeleccionada} onClose={closeModal} />
-          ))}
+        {modal ? (
+          modal.esPremium ? (
+            <ContenedorModal>
+              <TarjetaModal>
+                <CloseButton onClick={() => setModal(null)}>
+                  <img src={Close} alt="close-button" />
+                </CloseButton>
+                <ImagenModal src={SuscribeImage} alt="mr-burns-excelent" />
+                <ContenedorTexto>
+                  <TituloModal>Suscríbete a nuestro Newsletter</TituloModal>
+                  <DescripcionModal>
+                    Suscríbete a nuestro newsletter y recibe noticias de nuestros personajes favoritos.
+                  </DescripcionModal>
+                  <BotonSuscribir
+                    onClick={() =>
+                      setTimeout(() => {
+                        alert('Suscripto!');
+                        setModal(null);
+                      }, 1000)
+                    }
+                  >
+                    Suscríbete
+                  </BotonSuscribir>
+                </ContenedorTexto>
+              </TarjetaModal>
+            </ContenedorModal>
+          ) : (
+            <ContenedorModal>
+              <TarjetaModal>
+                <CloseButton onClick={() => setModal(null)}>
+                  <img src={Close} alt="close-button" />
+                </CloseButton>
+                <ImagenModal src={modal.imagen} alt="news-image" />
+                <ContenedorTexto>
+                  <TituloModal>{modal.titulo}</TituloModal>
+                  <DescripcionModal>{modal.descripcion}</DescripcionModal>
+                </ContenedorTexto>
+              </TarjetaModal>
+            </ContenedorModal>
+          )
+        ) : null}
       </ListaNoticias>
     </ContenedorNoticias>
   );
