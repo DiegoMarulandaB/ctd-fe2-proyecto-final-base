@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { SuscribeImage, CloseButton as Close } from '.././../../assets';
+import { SuscribeImage, CloseButton as Close } from '../../../assets';
+import { INoticiasNormalizadas } from '../types/index';
 import { obtenerNoticias } from '../fakeRest';
 import {
   CloseButton,
@@ -21,15 +22,15 @@ import {
   ContenedorTexto,
 } from '../styled';
 
-export interface INoticiasNormalizadas {
-  id: number;
-  titulo: string;
-  descripcion: string;
-  fecha: number | string;
-  esPremium: boolean;
-  imagen: string;
-  descripcionCorta?: string;
-}
+// export interface INoticiasNormalizadas {
+//   id: number;
+//   titulo: string;
+//   descripcion: string;
+//   fecha: number | string;
+//   esPremium: boolean;
+//   imagen: string;
+//   descripcionCorta?: string;
+// }
 
 const Noticias = () => {
   const [noticias, setNoticias] = useState<INoticiasNormalizadas[]>([]);
