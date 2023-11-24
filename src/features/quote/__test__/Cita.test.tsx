@@ -4,7 +4,7 @@ import Cita from '../../quote/__test__/Cita';
 // import { server } from '../../../__test__/server/server';
 // import { rest } from 'msw';
 // import { API_URL } from '../../../app/constants';
-// import {  mockResponseLisaSimpson } from '../../../__test__/mocks/mock';
+// import {  mockResponse, mockResponseLisaSimpson } from '../../../__test__/mocks/mock';
 
 describe('Cita', () => {
   beforeEach(() => {
