@@ -34,34 +34,34 @@ describe('Cita', () => {
       await waitFor(() => {
         expect(screen.getByText("Hey, I'm the chief here. Bake him away, toys.")).toBeInTheDocument();
       });
-        const quote = await screen.findByText("Hey, I'm the chief here. Bake him away, toys.");
-        const author = await screen.findByText('Chief Wiggum');
+      const quote = await screen.findByText("Hey, I'm the chief here. Bake him away, toys.");
+      const author = await screen.findByText('Chief Wiggum');
 
-        expect(quote).toBeInTheDocument();
-        expect(author).toBeVisible();
+      expect(quote).toBeInTheDocument();
+      expect(author).toBeVisible();
     });
   });
 
-// it("should fetch character's quote when submitting a character name by clicking button 'Obtener cita' ", async () => {
-//     const citaRandomButton = await screen.findByRole('button', { name: /Obtener cita/i });
+  // it("should fetch character's quote when submitting a character name by clicking button 'Obtener cita' ", async () => {
+  //     const citaRandomButton = await screen.findByRole('button', { name: /Obtener cita/i });
 
-//     act(() => {
-//       server.use(
-//         rest.get(`${API_URL}?character=Lisa Simpson`, (req, res, ctx) => {
-//           return res(ctx.status(200), ctx.json(mockResponseLisaSimpson));
-//         })
-//       );
-//       fireEvent.click(citaRandomButton);
-//     });
+  //     act(() => {
+  //       server.use(
+  //         rest.get(`${API_URL}?character=Lisa Simpson`, (req, res, ctx) => {
+  //           return res(ctx.status(200), ctx.json(mockResponseLisaSimpson));
+  //         })
+  //       );
+  //       fireEvent.click(citaRandomButton);
+  //     });
 
-//     const quote = await screen.findByText(
-//       "These are my only friends...grown-up nerds like Gore Vidal. And even he's kissed more boys than I ever will."
-//     );
-//     const author = await screen.findByText('Lisa Simpson');
+  //     const quote = await screen.findByText(
+  //       "These are my only friends...grown-up nerds like Gore Vidal. And even he's kissed more boys than I ever will."
+  //     );
+  //     const author = await screen.findByText('Lisa Simpson');
 
-//     expect(quote).toBeInTheDocument();
-//     expect(author).toBeVisible();
-//   });
+  //     expect(quote).toBeInTheDocument();
+  //     expect(author).toBeVisible();
+  //   });
 
 });
 export {};
