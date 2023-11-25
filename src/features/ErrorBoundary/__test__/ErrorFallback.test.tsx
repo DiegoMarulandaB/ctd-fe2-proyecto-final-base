@@ -4,7 +4,7 @@ import ErrorFallback from './ErrorFallback';
 
 describe('ErrorFallback', () => {
   beforeEach(() => {
-    // render(< />);
+    render(<ErrorFallback />);
   });
 
   afterEach(() => {
@@ -13,18 +13,15 @@ describe('ErrorFallback', () => {
 
   // Renders an ErrorContainer component
   it('should render ErrorContainer component', () => {
-    render(<ErrorFallback />);
     // expect(screen.getByTestId('error-container')).toBeInTheDocument();
   });
   // Renders an ErrorTitle component
   it('should render ErrorTitle component', () => {
-    render(<ErrorFallback />);
-    // expect(screen.getByTestId('ErrorTitle')).toBeInTheDocument();
+    // expect(screen.getByTestId('error-title')).toBeInTheDocument();
   });
 
   // Sets the body overflowY style to 'hidden' on mount
   it('should set body overflowY style to hidden on mount', () => {
-    render(<ErrorFallback />);
     expect(document.body.style.overflowY).toBe('hidden');
   });
 });
