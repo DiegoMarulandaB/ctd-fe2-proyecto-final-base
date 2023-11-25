@@ -4,7 +4,7 @@ import ErrorFallback from './ErrorFallback';
 
 describe('ErrorFallback', () => {
   beforeEach(() => {
-    // render(<Cita />);
+    // render(< />);
   });
 
   afterEach(() => {
