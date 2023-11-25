@@ -1,4 +1,4 @@
-import { cleanup, render } from '../../../__test__/test-utils';
+import { render, cleanup } from '@testing-library/react';
 import ErrorFallback from './ErrorFallback';
 
 
