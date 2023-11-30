@@ -1,5 +1,6 @@
 import { act, cleanup, render, screen, findByRole } from '../../../__test__/test-utils';
 import { waitFor, fireEvent } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event';
 import Cita from '../../quote/__test__/Cita';
 // import { server } from '../../../__test__/server/server';
 // import { rest } from 'msw';
@@ -51,7 +52,7 @@ describe('Cita', () => {
   //           return res(ctx.status(200), ctx.json(mockResponseLisaSimpson));
   //         })
   //       );
-  //       fireEvent.click(citaRandomButton);
+  //     userEvent.click(citaRandomButton);
   //     });
 
   //     const quote = await screen.findByText(
@@ -62,6 +63,6 @@ describe('Cita', () => {
   //     expect(quote).toBeInTheDocument();
   //     expect(author).toBeVisible();
   //   });
-
 });
 export {};
+
