@@ -2,6 +2,7 @@ import { render, screen, cleanup } from '@testing-library/react';
 import { fireEvent } from '@testing-library/react';
 import Bio from './Bio';
 
+
 describe('Bio', () => {
   beforeEach(() => {
     render(<Bio />);
