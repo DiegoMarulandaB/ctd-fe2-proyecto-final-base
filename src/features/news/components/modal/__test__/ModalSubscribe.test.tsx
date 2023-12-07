@@ -1,5 +1,5 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import ModalSubscribe from './ModalSubscribe';
+import ModalSubscribe from '../ModalSubscribe';
 
 describe('ModalSubscribe', () => {
   beforeEach(() => {

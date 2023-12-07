@@ -1,8 +1,8 @@
 import React from 'react';
-import Cita from './features/quote/__test__/Cita';
+import Cita from './features/quote/Cita';
 import './App.css';
 import './reset.css';
-import Bio from './features/bio/__test__/Bio';
+import Bio from './features/bio/Bio';
 import Noticias from './features/news/components/Noticias';
 
 function App() {

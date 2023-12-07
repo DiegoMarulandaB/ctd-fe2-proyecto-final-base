@@ -3,8 +3,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import citaReducer from '../features/quote/redux/citaSlice';
-import { RootState } from '../app/store';
+import citaReducer from './features/quote/redux/citaSlice';
+import { RootState } from './app/store';
 
 // Creamos el custom render
 const customRender = (

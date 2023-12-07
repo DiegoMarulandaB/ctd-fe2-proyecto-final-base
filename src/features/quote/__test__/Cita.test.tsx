@@ -1,11 +1,6 @@
-import { act, cleanup, render, screen, findByRole } from '../../../__test__/test-utils';
+import { act, cleanup, render, screen, findByRole } from '../../../test-utils';
 import { waitFor, fireEvent } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
-import Cita from '../../quote/__test__/Cita';
-// import { server } from '../../../__test__/server/server';
-// import { rest } from 'msw';
-// import { API_URL } from '../../../app/constants';
-// import {  mockResponse, mockResponseLisaSimpson } from '../../../__test__/mocks/mock';
+import Cita from '../Cita';
 
 describe('Cita', () => {
   beforeEach(() => {
@@ -42,27 +37,5 @@ describe('Cita', () => {
       expect(author).toBeVisible();
     });
   });
-
-  // it("should fetch character's quote when submitting a character name by clicking button 'Obtener cita' ", async () => {
-  //     const citaRandomButton = await screen.findByRole('button', { name: /Obtener cita/i });
-
-  //     act(() => {
-  //       server.use(
-  //         rest.get(`${API_URL}?character=Lisa Simpson`, (req, res, ctx) => {
-  //           return res(ctx.status(200), ctx.json(mockResponseLisaSimpson));
-  //         })
-  //       );
-  //     userEvent.click(citaRandomButton);
-  //     });
-
-  //     const quote = await screen.findByText(
-  //       "These are my only friends...grown-up nerds like Gore Vidal. And even he's kissed more boys than I ever will."
-  //     );
-  //     const author = await screen.findByText('Lisa Simpson');
-
-  //     expect(quote).toBeInTheDocument();
-  //     expect(author).toBeVisible();
-  //   });
 });
 export {};
-

@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { API_URL } from '../../app/constants';
+import { API_URL } from '../app/constants';
 import { mockResponse, mockResponseLisaSimpson } from '../mocks/mock';
 
 export const handlers = [

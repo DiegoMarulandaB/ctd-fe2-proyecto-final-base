@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ErrorContainer, ErrorTitle } from '../styled';
+import { ErrorContainer, ErrorTitle } from './styled';
 
 const ErrorFallback = () => {
   useEffect(() => {

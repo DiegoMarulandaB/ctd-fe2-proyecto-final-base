@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { NombresSimpsons, INFO_SIMPSONS } from '../constants';
+import { NombresSimpsons, INFO_SIMPSONS } from './constants';
 import styles from '../styles.module.css';
-import { BioContainer,ContenedorBotones,BioImagen,BioNombre,BioDescripcion } from '../styledBio';
+import { BioContainer, ContenedorBotones, BioImagen, BioNombre, BioDescripcion } from './styledBio';
 
 const Bio = () => {
   const [bioActiva, setBioActiva] = useState(INFO_SIMPSONS[NombresSimpsons.BART]);

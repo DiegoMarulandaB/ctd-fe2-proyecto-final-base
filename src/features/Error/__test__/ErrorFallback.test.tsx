@@ -1,6 +1,5 @@
 import { render, cleanup } from '@testing-library/react';
-import ErrorFallback from './ErrorFallback';
-
+import ErrorFallback from '../ErrorFallback';
 
 describe('ErrorFallback', () => {
   beforeEach(() => {
@@ -26,4 +25,3 @@ describe('ErrorFallback', () => {
   });
 });
 export {};
-
