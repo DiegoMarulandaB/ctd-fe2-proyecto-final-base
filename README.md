@@ -2,7 +2,9 @@
 
 Examen Final de Frontend V
 
-## Final project of the frontend 2 subject of the specialization in digital house.The Simpsons API was used. With it the user will be able to see quotes from each character, and a short description of the family. Project requirements: Typescript, unit testing, solid principles, clean code.
+## Proyecto final de la asignatura frontend 2 de la especialización en casa digital. Se utilizó la API de Los Simpson. Con él el usuario podrá ver citas de cada personaje y una breve descripción de la familia. Requisitos del proyecto: Texto mecanografiado, pruebas unitarias, principios sólidos, código limpio. 30/12/2023.
+
+## Final project of the frontend 2 subject of the specialization in digital house.The Simpsons API was used. With it the user will be able to see quotes from each character, and a short description of the family. Project requirements: Typescript, unit testing, solid principles, clean code. 30/12/2023.
 
 ## Indice
 
